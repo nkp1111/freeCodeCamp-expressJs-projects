@@ -11,8 +11,7 @@
   <title>Show Local Weather</title>
 </head>
 
-<body
-  class="bg-dark vw-100 d-flex justify-content-center align-items-center vh-100 flex-column text-light pb-5 container text-center">
+<body class="bg-dark vw-100 d-flex align-items-center vh-100 flex-column text-light py-5 container text-center">
   <header class="mb-5">
     <h1 class="fw-bold display-3">nkp1111 Weather App</h1>
   </header>
@@ -25,13 +24,14 @@
       <img src="<%=weather.weather[0].icon%>" alt=<%=`${weather.weather[0].main}`%> class="mx-3">
     </div>
 
-    <p class="display-6">
+    <p class="display-6" style="cursor:pointer;transition:all 0.3s;" id="temp">
       <%=weather.main.temp%> <span class="text-primary">&#8451;</span>
     </p>
     <p class="fs-4">
       <%=weather.name%>, <%= weather.sys.country %>
     </p>
   </main>
+  <script src="/js/index.js"></script>
 </body>
 
 </html>

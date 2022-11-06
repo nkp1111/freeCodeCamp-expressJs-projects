@@ -20,7 +20,7 @@ const getWeather = (url, lat, lon) => {
 
 app.get('/', async (req, res) => {
   let weather
-  let ip = req.headers['x-real-ip'] || req.connection.remoteAddress
+  let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   ip = '192.212.174.101'
   const location = geoip.lookup(ip)
   const lat = location.ll[0]
