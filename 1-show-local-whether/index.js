@@ -4,7 +4,7 @@ const app = express()
 
 app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs')
-app.use(express.static('public'))
+app.use(express.static(__dirname + '/public'))
 
 const url = 'https://weather-proxy.freecodecamp.rocks/api/current'
 
@@ -20,6 +20,7 @@ const getWeather = (url, lat, lon) => {
 getWeather(url, 35, 139)
 
 app.get('/', (req, res) => {
+  let whether
   res.render('index', { whether })
 })
 
