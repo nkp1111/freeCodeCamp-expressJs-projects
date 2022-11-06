@@ -2,6 +2,10 @@ const express = require('express')
 const axios = require('axios')
 const app = express()
 
+app.set('views', __dirname + '/views')
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+
 const url = 'https://weather-proxy.freecodecamp.rocks/api/current'
 
 const getWeather = (url, lat, lon) => {
@@ -14,6 +18,10 @@ const getWeather = (url, lat, lon) => {
 }
 
 getWeather(url, 35, 139)
+
+app.get('/', (req, res) => {
+  res.render('index', { whether })
+})
 
 app.listen('3000', () => {
   console.log('App on port 3000');
