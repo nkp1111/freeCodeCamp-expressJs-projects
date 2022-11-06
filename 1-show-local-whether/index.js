@@ -19,15 +19,15 @@ const getWeather = (url, lat, lon) => {
 }
 
 app.get('/', async (req, res) => {
-  let whether
+  let weather
   let ip = req.headers['x-real-ip'] || req.connection.remoteAddress
   ip = '192.212.174.101'
   const location = geoip.lookup(ip)
   const lat = location.ll[0]
   const lon = location.ll[1]
-  whether = await getWeather(url, lat, lon)
-  console.log(whether);
-  res.render('index', { whether })
+  weather = await getWeather(url, lat, lon)
+  console.log(weather, weather.weather);
+  res.render('index', { weather })
 })
 
 app.listen('3000', () => {
