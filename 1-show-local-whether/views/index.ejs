@@ -24,14 +24,14 @@
       <img src="<%=weather.weather[0].icon%>" alt=<%=`${weather.weather[0].main}`%> class="mx-3">
     </div>
 
-    <p class="display-6" style="cursor:pointer;transition:all 0.3s;" id="temp">
+    <p class="display-4 mb-5" style="cursor:pointer;transition:all 0.3s;" id="temp">
       <%=weather.main.temp%> <span class="text-primary">&#8451;</span>
     </p>
-    <p class="fs-4">
+    <p class="display-6">
       <%=weather.name%>, <%= weather.sys.country %>
     </p>
   </main>
-  <script src="/js/index.js"></script>
+  <script src="/js/script.js"></script>
 </body>
 
 </html>
