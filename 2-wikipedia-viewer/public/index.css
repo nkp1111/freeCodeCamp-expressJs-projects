@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: teal;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+header {
+
+  text-decoration: underline;
+}
+
+.hide {
+  display: none;
+}
+
+h2 {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+h3 {
+  font-size: .9rem;
+}
+
+i#search {
+  font-size: 2.5rem;
+  color: chocolate;
+  cursor: pointer;
+}
+
+#form {
+  position: relative;
+}
+
+#form input {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 2px solid chocolate;
+  background: teal;
+  width: 300px;
+  color: white;
+  font-size: 1rem;
+}
+
+#form input:focus {
+  outline: 2px solid chocolate;
+}
+
+#form i.fa-xmark {
+  position: absolute;
+  top: 0;
+  right: 3%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 10px;
+  color: chocolate;
+}
+
+#form i.fa-xmark:hover {
+  scale: 1.2;
+}
+
+ul {
+  list-style-type: none;
+  text-align: left;
+  margin-top: 3rem;
+}
+
+ul li {
+  background: white;
+  font-weight: 500;
+  padding: 10px 25px 10px 10px;
+  margin: 5px;
+  cursor: pointer;
+  transition: .5s all linear;
+}
+
+ul li:hover {
+  border-left: 10px solid chocolate;
+}
+
+ul li a {
+  color: black;
+}
