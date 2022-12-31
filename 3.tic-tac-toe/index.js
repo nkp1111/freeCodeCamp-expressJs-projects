@@ -7,7 +7,7 @@ app.set("views", __dirname + "/views")
 app.use(express.static("public"))
 
 app.get("/", (req, res) => {
-  res.render("index")
+  res.render("index", { mode: true, gameStart: false })
 })
 
 app.listen(3000, () => {

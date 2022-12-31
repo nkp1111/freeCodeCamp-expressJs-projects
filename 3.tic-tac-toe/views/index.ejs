@@ -24,21 +24,35 @@
   <h1 class="main-heading">Tic Tac Toe</h1>
 
   <div class="container">
-    <%let k=1%>
-      <% for (let i=1; i < 4; i++) {%>
-        <div class="row">
-          <% for (let j=1; j < 4; j++) {%>
-            <div class="col <%= 'box-' + k%>">
-              <div class="row">
-                <div class="col-12">
-                  <%= k%>
-                </div>
-              </div>
-            </div>
-            <% k +=1 %>
-              <%} %>
+
+    <%if (mode) {%>
+      <div class="text-white p-5">
+        <h2 class="mb-4">Welcome to The game...</h2>
+        <p class="my-2">How would you like to play?</p>
+        <div class="d-flex mt-2">
+          <a href="/:1" class="text-white btn btn-danger me-3" title="vs computer">1 Player</a>
+          <a href="/:2" class="text-white btn btn-success" title="vs human">2 Player</a>
         </div>
-        <%} %>
+      </div>
+      <%}%>
+
+        <% if (gameStart) {%>
+          <%let k=1%>
+            <% for (let i=1; i < 4; i++) {%>
+              <div class="row">
+                <% for (let j=1; j < 4; j++) {%>
+                  <div class="col <%= 'box-' + k%>">
+                    <div class="row">
+                      <div class="col-12">
+                        <%= k%>
+                      </div>
+                    </div>
+                  </div>
+                  <% k +=1 %>
+                    <%} %>
+              </div>
+              <%} %>
+                <% }%>
   </div>
 </body>
 
