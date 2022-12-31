@@ -23,57 +23,66 @@
 <body>
   <h1 class="main-heading">Tic Tac Toe</h1>
 
-  <div class="container">
+  <%if (gameStart){%>
+    <h2>Player1 Turn
+      <span class="playermark">
+        <%= choice%>
+      </span>
+    </h2>
+    <%}%>
 
-    <!-- decide game mode  -->
-    <%if (playMode===undefined ) {%>
-      <div class="game-part">
-        <h2>Welcome to The game...</h2>
-        <p class="my-2">How would you like to play?</p>
-        <div class="d-flex btn-holder">
-          <a href="/selectMode/1" class="text-white btn btn-danger" title="vs computer">1 Player</a>
-          <a href="/selectMode/2" class="text-white btn btn-success" title="vs human">2 Player</a>
-        </div>
-      </div>
-      <%}%>
+      <div class="container">
 
-        <!-- player1 choice  -->
-
-        <% if (playMode !==undefined && !choice) {%>
+        <!-- decide game mode  -->
+        <%if (playMode===undefined ) {%>
           <div class="game-part">
-            <h2>Player1 Choice</h2>
-            <div class="row">
-              <span class="col choose target">X</span>
-              <span class="col choose">O</span>
-            </div>
-            <div class="btn-holder">
-              <a class="btn btn-secondary" href="/back">Back</a>
-              <a href="/gameStart/X" class="btn btn-primary target-link">Start Game</a>
+            <h2>Welcome to The game...</h2>
+            <p class="my-2">How would you like to play?</p>
+            <div class="d-flex btn-holder">
+              <a href="/selectMode/1" class="text-white btn btn-danger" title="vs computer">1 Player</a>
+              <a href="/selectMode/2" class="text-white btn btn-success" title="vs human">2 Player</a>
             </div>
           </div>
           <%}%>
 
-            <!-- game play  -->
-            <% if (gameStart) {%>
-              <%let k=1%>
-                <% for (let i=1; i < 4; i++) {%>
-                  <div class="row">
-                    <% for (let j=1; j < 4; j++) {%>
-                      <div class="col <%= 'box-' + k%>">
-                        <div class="row">
-                          <div class="col-12">
-                            <%= k%>
-                          </div>
-                        </div>
-                      </div>
-                      <% k +=1 %>
-                        <%} %>
-                  </div>
-                  <%} %>
-                    <% }%>
-  </div>
+            <!-- player1 choice  -->
 
-  <script src="home.js"></script>
+            <% if (playMode !==undefined && !choice) {%>
+              <div class="game-part">
+                <h2>Player1 Choice</h2>
+                <div class="row">
+                  <span class="col choose target">X</span>
+                  <span class="col choose">O</span>
+                </div>
+                <div class="btn-holder">
+                  <a class="btn btn-secondary" href="/back">Back</a>
+                  <a href="/gameStart/X" class="btn btn-primary target-link">Start Game</a>
+                </div>
+              </div>
+              <%}%>
+
+                <!-- game play  -->
+                <% if (gameStart) {%>
+                  <%let k=0%>
+                    <% for (let i=0; i < 3; i++) {%>
+                      <div class="row">
+                        <% for (let j=0; j < 3; j++) {%>
+                          <div class="col <%= 'box-' + k%> box">
+                            <div class="row">
+                              <div class="col-12">
+                                <%= k%>
+                              </div>
+                            </div>
+                          </div>
+                          <% k +=1 %>
+                            <%} %>
+                      </div>
+                      <%} %>
+                        <% }%>
+      </div>
+
+      <script src="home.js"></script>
+
 </body>
 
 </html>

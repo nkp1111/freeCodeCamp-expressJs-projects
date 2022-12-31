@@ -3,6 +3,8 @@
   --light-green: #A6BB8D;
   --lawn-green: #61876E;
   --dark-green: #3C6255;
+  --orange: #FD841F;
+  --redorange: #E14D2A;
 }
 
 body {
@@ -60,25 +62,29 @@ h2 {
 }
 
 .choose.target {
-  color: crimson;
+  color: var(--redorange);
 }
 
 
 /* game start  */
+.main-heading+h2 {
+  text-align: center;
+}
+
 .col {
   margin-right: 1%;
   margin-bottom: 1%;
 }
 
-.box-3,
-.box-6,
-.box-9 {
-  margin: 0;
+.box-2,
+.box-5,
+.box-8 {
+  margin-right: 0;
 }
 
+.box-6,
 .box-7,
-.box-8,
-.box-9 {
+.box-8 {
   margin-bottom: 0;
 }
 

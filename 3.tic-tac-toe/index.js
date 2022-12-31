@@ -8,12 +8,13 @@ app.use(express.static("public"))
 
 let playMode
 let choice
+let gameStart
 
 app.get("/", (req, res) => {
   res.render("index", {
     playMode,
     choice,
-    gameStart: false
+    gameStart
   })
 })
 
@@ -33,7 +34,8 @@ app.get("/back", (req, res) => {
 })
 
 app.get("/gameStart/:choice", (req, res) => {
-  console.log(req.params.choice)
+  choice = req.params.choice
+  gameStart = true
   res.redirect("/")
 })
 
