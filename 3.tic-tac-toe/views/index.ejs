@@ -24,11 +24,14 @@
   <h1 class="main-heading">Tic Tac Toe</h1>
 
   <%if (gameStart){%>
-    <h2>
+    <h2 class="currentTurn">
       <span class="player">Player1</span>
       Turn
       <span class="playermark">
         <%= choice%>
+      </span>
+      <span class="d-none playMode">
+        <%= playMode %>
       </span>
     </h2>
     <%}%>

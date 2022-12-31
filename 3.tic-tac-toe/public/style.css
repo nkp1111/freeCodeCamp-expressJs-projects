@@ -23,6 +23,7 @@ body {
   max-width: 50%;
   min-width: 350px;
   min-height: 350px;
+  transition: .5s all linear;
 }
 
 .game-part {
@@ -104,10 +105,14 @@ h2 {
   background: var(--lawn-green);
 }
 
-/* endgame  */
+.currentTurn {
+  margin: -2rem 0 1rem;
+}
 
+/* endgame  */
 .container.game-over {
   padding: 2rem;
+  margin-top: 3rem;
 }
 
 .ending {
@@ -120,4 +125,8 @@ h2 {
   display: block;
   margin: auto;
   width: fit-content;
+}
+
+.container.game-over .playermark {
+  color: var(--cream);
 }

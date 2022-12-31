@@ -39,6 +39,13 @@ app.get("/gameStart/:choice", (req, res) => {
   res.redirect("/")
 })
 
+app.get("/startAgain", (req, res) => {
+  playMode = undefined
+  choice = undefined
+  gameStart = undefined
+  res.redirect("/")
+})
+
 app.listen(3000, () => {
   console.log("Listening on port 3000");
 })
