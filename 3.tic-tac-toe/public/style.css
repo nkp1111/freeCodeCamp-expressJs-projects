@@ -1,0 +1,57 @@
+:root {
+  --cream: #EAE7B1;
+  --light-green: #A6BB8D;
+  --lawn-green: #61876E;
+  --dark-green: #3C6255;
+}
+
+body {
+  background: var(--cream);
+}
+
+.main-heading {
+  text-align: center;
+  margin: 1% auto 4%;
+  text-decoration: underline;
+}
+
+.container {
+  margin: auto;
+  background: var(--dark-green);
+  max-width: 50%;
+  min-width: 350px;
+  min-height: 350px;
+}
+
+.col {
+  margin-right: 1%;
+  margin-bottom: 1%;
+}
+
+.box-3,
+.box-6,
+.box-9 {
+  margin: 0;
+}
+
+.box-7,
+.box-8,
+.box-9 {
+  margin-bottom: 0;
+}
+
+.col-12 {
+  background: var(--light-green);
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s all linear;
+}
+
+.col-12:hover {
+  background: var(--lawn-green);
+}
