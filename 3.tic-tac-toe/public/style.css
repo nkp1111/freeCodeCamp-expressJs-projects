@@ -103,3 +103,21 @@ h2 {
 .col-12:hover {
   background: var(--lawn-green);
 }
+
+/* endgame  */
+
+.container.game-over {
+  padding: 2rem;
+}
+
+.ending {
+  margin: 3rem;
+  text-align: center;
+  color: white;
+}
+
+.container.game-over .btn-holder .btn {
+  display: block;
+  margin: auto;
+  width: fit-content;
+}
