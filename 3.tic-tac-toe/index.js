@@ -6,8 +6,35 @@ app.set("view engine", "ejs")
 app.set("views", __dirname + "/views")
 app.use(express.static("public"))
 
+let playMode
+let choice
+
 app.get("/", (req, res) => {
-  res.render("index", { mode: true, gameStart: false })
+  res.render("index", {
+    playMode,
+    choice,
+    gameStart: false
+  })
+})
+
+app.get("/selectMode/:mode", (req, res) => {
+  if (req.params.mode == "1") {
+    playMode = "Computer"
+  } else if (req.params.mode == "2") {
+    playMode = "Human"
+  }
+  res.redirect("/")
+})
+
+app.get("/back", (req, res) => {
+  playMode = undefined
+  choice = undefined
+  res.redirect("/")
+})
+
+app.get("/gameStart/:choice", (req, res) => {
+  console.log(req.params.choice)
+  res.redirect("/")
 })
 
 app.listen(3000, () => {

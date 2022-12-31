@@ -23,6 +23,48 @@ body {
   min-height: 350px;
 }
 
+.game-part {
+  padding: 3rem;
+  color: #fff;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.btn-holder {
+  margin-top: 2rem;
+}
+
+.btn-holder .btn:first-child {
+  margin-right: 1rem;
+}
+
+
+/* choice section  */
+.choose {
+  display: flex;
+  font-size: 4rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 1rem;
+  border: 1px solid var(--lawn-green);
+  justify-content: center;
+  align-items: center;
+  transition: .3s all linear;
+}
+
+.choose:hover {
+  color: var(--cream);
+  border: 1px solid var(--cream);
+}
+
+.choose.target {
+  color: crimson;
+}
+
+
+/* game start  */
 .col {
   margin-right: 1%;
   margin-bottom: 1%;
