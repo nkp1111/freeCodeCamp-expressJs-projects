@@ -1,5 +1,10 @@
 const OnOffBtn = document.querySelector(".on-off-btn")
+const displayEl = document.querySelector(".display")
+const startBtn = document.querySelector(".radio-switch")
+const startLabel = document.querySelector(".radio-switch-label")
 let score = 0
+
+showDisplay()
 
 // clicks game on off 
 OnOffBtn.addEventListener("click", (e) => {
@@ -13,6 +18,28 @@ OnOffBtn.addEventListener("click", (e) => {
   }
 })
 
+
 function gameStart() {
-  console.log("start");
+  showDisplay()
+  startBtn.addEventListener("click", updateStart)
+  startLabel.addEventListener("click", updateStart)
+}
+
+function showDisplay() {
+  displayEl.innerText = score
+}
+
+function updateStart() {
+  if (startLabel.innerText == "START") {
+    startLabel.innerText = "STOP"
+    startBtn.style.background = "green"
+  } else {
+    startLabel.innerText = "START"
+    startBtn.style.background = "red"
+    playGame()
+  }
+}
+
+function playGame() {
+
 }

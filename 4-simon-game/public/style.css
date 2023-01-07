@@ -120,9 +120,9 @@ body {
 .on-off-btn {
   background: #1e1e1e;
   width: 50px;
-  height: 25px;
+  height: 26px;
   margin: .7rem auto 0;
-  border-radius: 5px;
+  border-radius: 7px;
   position: relative;
   cursor: pointer;
   transition: .3s all linear;
@@ -167,7 +167,7 @@ body {
   background: blue;
   top: 50%;
   translate: 0 -50%;
-  left: 3%;
+  left: 5%;
   border-radius: 5px;
 }
 
@@ -178,10 +178,9 @@ body {
   background: blue;
   top: 50%;
   translate: 0 -50%;
-  right: 3%;
+  right: 5%;
   border-radius: 5px;
 }
-
 
 
 @media (max-width: 550px) {
