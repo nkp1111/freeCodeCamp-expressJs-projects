@@ -1,3 +1,70 @@
 body {
   background: #EAE7B1;
 }
+
+.main-heading {
+  margin: 1rem auto 3rem;
+  text-align: center;
+}
+
+.container {
+  margin: auto;
+  width: 350px;
+  border-radius: 50%;
+  height: 350px;
+  border: 16px solid;
+  position: relative;
+}
+
+.color {
+  width: 160px;
+  height: 160px;
+  position: absolute;
+}
+
+.red {
+  border-radius: 0 100% 0 0;
+  right: 0;
+  top: 0;
+  background: red;
+}
+
+.green {
+  border-radius: 0 0 100% 0;
+  right: 0;
+  top: 50%;
+  background: green;
+}
+
+.yellow {
+  border-radius: 0 0 0 100%;
+  right: 50%;
+  top: 50%;
+  background: yellow;
+}
+
+.blue {
+  border-radius: 100% 0 0 0;
+  right: 50%;
+  top: 0;
+  background: blue;
+}
+
+.game-control {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5000;
+  border: 10px solid;
+}
+
+.center-head {
+  font-weight: bold;
+  text-align: center;
+  margin-top: .5rem;
+}
