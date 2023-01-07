@@ -1,3 +1,17 @@
+:root {
+  --option1-color: ;
+  --option2-color: ;
+  --option3-color: ;
+  --option4-color: ;
+
+  --option1-light-color: ;
+  --option2-light-color: ;
+  --option3-light-color: ;
+  --option4-light-color: ;
+
+  --display-box-back: #700315;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -97,13 +111,14 @@ body {
   width: 60px;
   height: 30px;
   border-radius: 10px;
-  background: red;
-  color: #fff;
-  border: 2px solid #000;
+  background: var(--display-box-back);
+  color: #FFC5B0;
+  border: 1px solid #000;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.5rem;
 }
 
 /* radio switch  */
@@ -114,6 +129,7 @@ body {
   margin: auto;
   border-radius: 50%;
   cursor: pointer;
+  border: 1px solid;
 }
 
 /* on off button custom */
