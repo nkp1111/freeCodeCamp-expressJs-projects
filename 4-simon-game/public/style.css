@@ -25,34 +25,52 @@ body {
   height: 250px;
   position: absolute;
   border: 10px solid;
+  transition: .5s all linear;
+  cursor: pointer;
 }
 
 .red-box {
   border-radius: 0 100% 0 0;
   right: -1%;
   top: -2%;
-  background: red;
+  background: #F53018;
+}
+
+.red-box.select {
+  background: #F66C5D;
 }
 
 .green-box {
   border-radius: 0 0 100% 0;
   right: -1%;
   top: 49%;
-  background: green;
+  background: #00D650;
+}
+
+.green-box.select {
+  background: #93D6AD;
 }
 
 .yellow-box {
   border-radius: 0 0 0 100%;
-  right: 49%;
+  right: 48%;
   top: 49%;
-  background: yellow;
+  background: #FAC704;
+}
+
+.yellow-box.select {
+  background: #FADB68;
 }
 
 .blue-box {
   border-radius: 100% 0 0 0;
-  right: 49%;
+  right: 48%;
   top: -2%;
-  background: blue;
+  background: #1A2BEB;
+}
+
+.blue-box.select {
+  background: #767BEB;
 }
 
 .game-control {
@@ -107,6 +125,7 @@ body {
   border-radius: 5px;
   position: relative;
   cursor: pointer;
+  transition: .3s all linear;
 }
 
 .on-off-btn::before {
@@ -116,6 +135,7 @@ body {
   position: absolute;
   left: -60%;
   font-weight: bold;
+  color: #555;
 }
 
 .on-off-btn::after {
@@ -125,9 +145,22 @@ body {
   position: absolute;
   right: -25%;
   font-weight: bold;
+  color: #555;
+}
+
+.on-off-btn.off::before {
+  color: #1e1e1e;
+}
+
+.on-off-btn.on::after {
+  color: #1e1e1e;
 }
 
 .on-off-btn .box {
+  transition: inherit;
+}
+
+.on-off-btn.off .box {
   width: 20px;
   height: 20px;
   position: absolute;
@@ -135,6 +168,17 @@ body {
   top: 50%;
   translate: 0 -50%;
   left: 3%;
+  border-radius: 5px;
+}
+
+.on-off-btn.on .box {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: blue;
+  top: 50%;
+  translate: 0 -50%;
+  right: 3%;
   border-radius: 5px;
 }
 
