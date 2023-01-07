@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: #EAE7B1;
 }
@@ -9,50 +13,51 @@ body {
 
 .container {
   margin: auto;
-  width: 350px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
-  height: 350px;
-  border: 16px solid;
+  border: 20px solid;
   position: relative;
 }
 
-.color {
-  width: 160px;
-  height: 160px;
+.color-box {
+  width: 250px;
+  height: 250px;
   position: absolute;
+  border: 10px solid;
 }
 
-.red {
+.red-box {
   border-radius: 0 100% 0 0;
-  right: 0;
-  top: 0;
+  right: -1%;
+  top: -2%;
   background: red;
 }
 
-.green {
+.green-box {
   border-radius: 0 0 100% 0;
-  right: 0;
-  top: 50%;
+  right: -1%;
+  top: 49%;
   background: green;
 }
 
-.yellow {
+.yellow-box {
   border-radius: 0 0 0 100%;
-  right: 50%;
-  top: 50%;
+  right: 49%;
+  top: 49%;
   background: yellow;
 }
 
-.blue {
+.blue-box {
   border-radius: 100% 0 0 0;
-  right: 50%;
-  top: 0;
+  right: 49%;
+  top: -2%;
   background: blue;
 }
 
 .game-control {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   background: #fff;
   position: absolute;
@@ -61,10 +66,94 @@ body {
   transform: translate(-50%, -50%);
   z-index: 5000;
   border: 10px solid;
+  text-align: center;
 }
 
 .center-head {
   font-weight: bold;
-  text-align: center;
-  margin-top: .5rem;
+  margin: .5rem auto .7rem;
+}
+
+/* control box  */
+.display {
+  width: 60px;
+  height: 30px;
+  border-radius: 10px;
+  background: red;
+  color: #fff;
+  border: 2px solid #000;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* radio switch  */
+.radio-switch {
+  width: 30px;
+  height: 30px;
+  background: red;
+  margin: auto;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* on off button custom */
+.on-off-btn {
+  background: #1e1e1e;
+  width: 50px;
+  height: 25px;
+  margin: .7rem auto 0;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.on-off-btn::before {
+  content: "OFF";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  left: -60%;
+  font-weight: bold;
+}
+
+.on-off-btn::after {
+  content: "ON";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: -25%;
+  font-weight: bold;
+}
+
+.on-off-btn .box {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: blue;
+  top: 50%;
+  translate: 0 -50%;
+  left: 3%;
+  border-radius: 5px;
+}
+
+
+
+@media (max-width: 550px) {
+  .container {
+    margin: auto;
+    width: 365px;
+    height: 365px;
+    border-radius: 50%;
+    border: 10px solid;
+    position: relative;
+  }
+
+  .color-box {
+    width: 175px;
+    height: 175px;
+    position: absolute;
+    border: 10px solid;
+  }
 }

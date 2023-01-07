@@ -23,14 +23,42 @@
   <h1 class="main-heading">Simon Game</h1>
 
   <main>
+    <!-- game container  -->
     <div class="container">
+      <!-- game control box  -->
       <div class="game-control">
         <h2 class="center-head">Simon</h2>
+
+        <div class="control-box container-fluid">
+          <div class="row">
+            <!-- counter count correct -->
+            <div class="col-6 display">1</div>
+            <!-- radio-button to start  -->
+            <div class="col-6 radio-switch">
+              <input class="d-none" type="radio" name="switch" id="switch">
+            </div>
+          </div>
+          <div class="row">
+            <!--counter label -->
+            <div class="col-6 counter">COUNT</div>
+            <!-- start label  -->
+            <div class="col-6">
+              <label class="col-6" for="switch">START</label>
+            </div>
+
+          </div>
+
+          <div class="row on-off-btn">
+            <span class="box"></span>
+            <input type="checkbox" name="on-off" id="on-off" class="d-none">
+          </div>
+        </div>
       </div>
-      <div class="color red"></div>
-      <div class="color green"></div>
-      <div class="color yellow"></div>
-      <div class="color blue"></div>
+      <!-- game options  -->
+      <div class="color-box red-box"></div>
+      <div class="color-box green-box"></div>
+      <div class="color-box yellow-box"></div>
+      <div class="color-box blue-box"></div>
     </div>
 
   </main>
