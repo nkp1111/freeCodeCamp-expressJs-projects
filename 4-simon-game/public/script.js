@@ -4,7 +4,7 @@ const startBtn = document.querySelector(".radio-switch")
 const startLabel = document.querySelector(".radio-switch-label")
 
 let score
-let initialWaitTime = 1000
+let initialWaitTime = 2000
 
 // add items on list as game goes on
 let gameChoiceList = []
@@ -38,6 +38,7 @@ function gameOff() {
   userResponse = []
   isGameOn = false
   gameStop()
+  removeSelectFromBoxes()
 }
 
 function gameOn() {
@@ -144,21 +145,24 @@ function hearResponse() {
   // hear user response 
   boxes.forEach(box => {
     box.addEventListener("click", (e) => {
-      removeSelectFromBoxes()
       userResponse.push(box.classList[1].split("-")[0])
       box.classList.add("select")
-      console.log(userResponse);
+
+      setTimeout(function () {
+        removeSelectFromBoxes()
+      }, 500)
+
+      console.log("hear response", userResponse, gameChoiceList);
       if (userResponse.length === gameChoiceList.length) {
         checkResponse()
       }
     })
   })
-
 }
 
 function checkResponse() {
   // check if current answer is right
-  console.log(gameChoiceList, userResponse, score)
+  console.log("check response", gameChoiceList, userResponse, score)
   let fail = false
   userResponse.forEach((res, ind) => {
     if (res !== gameChoiceList[ind]) {
@@ -167,11 +171,7 @@ function checkResponse() {
   })
 
   if (fail) {
-    score = 0
-    userResponse = []
-    gameChoiceList = []
-    showDisplay()
-    updateStart()
+    gameOff()
   } else {
     score += 1
     userResponse = []

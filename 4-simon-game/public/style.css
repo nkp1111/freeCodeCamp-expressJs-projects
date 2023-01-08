@@ -51,29 +51,29 @@ body {
 }
 
 .red-box.select {
-  background: #F66C5D;
+  background: #fda59b;
 }
 
 .green-box {
   border-radius: 0 0 100% 0;
   right: -1%;
   top: 49%;
-  background: #00D650;
+  background: #06ea59;
 }
 
 .green-box.select {
-  background: #93D6AD;
+  background: #9efbaf;
 }
 
 .yellow-box {
   border-radius: 0 0 0 100%;
   right: 48%;
   top: 49%;
-  background: #FAC704;
+  background: #FACD00;
 }
 
 .yellow-box.select {
-  background: #FADB68;
+  background: #fbebaa;
 }
 
 .blue-box {
@@ -84,7 +84,7 @@ body {
 }
 
 .blue-box.select {
-  background: #767BEB;
+  background: #afb3ff;
 }
 
 .game-control {
