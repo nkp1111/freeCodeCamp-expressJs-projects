@@ -144,20 +144,28 @@ function removeSelectFromBoxes() {
 function hearResponse() {
   // hear user response 
   boxes.forEach(box => {
-    box.addEventListener("click", (e) => {
-      userResponse.push(box.classList[1].split("-")[0])
-      box.classList.add("select")
-
-      setTimeout(function () {
-        removeSelectFromBoxes()
-      }, 500)
-
-      console.log("hear response", userResponse, gameChoiceList);
-      if (userResponse.length === gameChoiceList.length) {
-        checkResponse()
-      }
-    })
+    box.addEventListener("click", (e) => addResponse(e))
   })
+}
+
+function addResponse(e) {
+  userResponse.push(e.target.classList[1].split("-")[0])
+  e.target.classList.add("select")
+  setTimeout(function () {
+    removeSelectFromBoxes()
+  }, 500)
+  console.log("hear response", userResponse, gameChoiceList);
+  if (userResponse.length === gameChoiceList.length) {
+    checkResponse()
+  }
+  boxes.forEach(box => {
+    box.removeEventListener("click", addResponse)
+  })
+  setTimeout(function () {
+    boxes.forEach(box => {
+      box.addEventListener("click", addResponse)
+    })
+  }, 50)
 }
 
 function checkResponse() {
