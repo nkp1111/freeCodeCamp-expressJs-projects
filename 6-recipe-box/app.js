@@ -7,6 +7,7 @@ app.set("view engine", "ejs")
 app.set("views", __dirname + "/views")
 app.use(express.static(__dirname + "/public"))
 
+// variables
 let currentRecipe = 0
 let to_delete = false
 let to_edit = false
@@ -23,7 +24,13 @@ app.get("/delete/:state", (req, res) => {
       to_delete = true
       break;
     case "confirm":
-      recipes = [...recipes.slice(0, currentRecipe), ...recipes.slice(currentRecipe + 1,)]
+      recipes = [...recipes.slice(0, currentRecipe)]
+      if (recipes.length > 1) {
+        currentRecipe = 0
+        recipes = [...recipes, ...recipes.slice(currentRecipe + 1,)]
+      } else {
+        currentRecipe = undefined
+      }
       to_delete = false
       break;
 
@@ -36,12 +43,17 @@ app.get("/delete/:state", (req, res) => {
 
 app.get("/edit/:state", (req, res) => {
   const { state } = req.params
+  const { name, ingredient, direction } = req.query
   switch (state) {
     case "start":
       to_edit = true
       break;
     case "confirm":
-      console.log("confirm")
+      let ingredients = ingredient.split(" / ")
+      let directions = direction.split(" / ")
+      recipes[currentRecipe].recipe = name
+      recipes[currentRecipe].ingredients = ingredients
+      recipes[currentRecipe].directions = directions
       to_edit = false
       break;
 
@@ -52,8 +64,28 @@ app.get("/edit/:state", (req, res) => {
   res.redirect("/")
 })
 
-app.get("/add", (req, res) => {
-  console.log("add")
+app.get("/add/:state", (req, res) => {
+  const { state } = req.params
+  const { name, ingredient, direction } = req.query
+  switch (state) {
+    case "start":
+      to_add = true
+      break;
+    case "confirm":
+      const ingredients = ingredient.split(" / ")
+      const directions = direction.split(" / ")
+      const newRecipe = { recipe: name, ingredients, directions }
+      recipes.push(newRecipe)
+      if (!currentRecipe) {
+        currentRecipe = 0
+      }
+      to_add = false
+      break;
+
+    default:
+      to_add = false
+      break;
+  }
   res.redirect("/")
 })
 
@@ -61,7 +93,6 @@ const isNumeric = (str) => {
   if (typeof str != "string") return false
   return !isNaN(str) && !isNaN(parseFloat(str))
 }
-
 
 app.get("/:recipeInd", (req, res) => {
   const { recipeInd } = req.params

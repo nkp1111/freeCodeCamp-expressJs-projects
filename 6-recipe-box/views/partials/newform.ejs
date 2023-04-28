@@ -1,0 +1,26 @@
+<div class="card-body">
+  <h3>Add Recipe</h3>
+  <small>*note: please separate ingredients and directions with " / " symbol.</small>
+  <form class="p-1" method="GET" action="/add/confirm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Recipe</label>
+      <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="mb-3">
+      <label for="ingredient" class="form-label">Ingredients</label>
+      <textarea class="form-control" id="ingredient"
+        name="ingredient"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="direction" class="form-label">Directions</label>
+      <textarea class="form-control" id="direction"
+        name="direction"></textarea>
+    </div>
+    <div class="btn-holder d-flex justify-content-center">
+      <!-- cancel edit  -->
+      <a href="/add/cancel" class="btn btn-secondary">Close</a>
+      <!-- confirm edit  -->
+      <button type="submit" class="btn btn-danger">Save</button>
+    </div>
+  </form>
+</div>

@@ -31,7 +31,10 @@
     </section>
 
     <section class="bg-white">
-      <h2 class="bg-success ps-5 py-3"><%= recipes[currentRecipe].recipe %>
+      <h2 class="bg-success ps-5 py-3">
+        <% if (currentRecipe) { %>
+        <%= recipes[currentRecipe].recipe %>
+        <% } %>
         <span>
           <!-- delete button  -->
           <a href="/delete/start" class="delete-btn"><i class="fa-solid fa-trash"></i></a>
@@ -43,6 +46,7 @@
         <!-- list all ingredients  -->
         <article>
           <h3>Ingredients: </h3>
+          <% if (currentRecipe) { %>
           <div>
             <ul>
               <% for( let ingredient of recipes[currentRecipe].ingredients ) { %>
@@ -50,10 +54,12 @@
               <% } %>
             </ul>
           </div>
+          <% } %>
         </article>
         <!-- list all steps for recipe  -->
         <article>
           <h3>Directions: </h3>
+          <% if (currentRecipe) { %>
           <div>
             <ol>
               <% for( let ingredient of recipes[currentRecipe].directions ) { %>
@@ -61,25 +67,29 @@
               <% } %>
             </ol>
           </div>
+          <% } %>
         </article>
       </div>
       <!-- add new recipe  -->
       <aside class="bg-success ps-5 py-3">
-        <a href="/add"><i class="fa-regular fa-square-plus"></i></a>
+        <a href="/add/start"><i class="fa-regular fa-square-plus"></i></a>
       </aside>
     </section>
 
     <!-- delete recipe confirmation modal  -->
-     <% if (to_delete || to_edit || to_add) { %>
+     <% if ((currentRecipe && to_delete ||currentRecipe && to_edit ) || to_add) { %>
       <div class="card-cover position-fixed">
         <div class="card <%= !to_delete && 'form-card'%>">
-          <% if (to_delete) { %>
+          <% if ( to_delete) { %>
             <!-- delete recipe template  -->
             <%- include("partials/delete.ejs")  %>
-          <% } else { %>
-            <!-- edit and new recipe template  -->
-            <%- include("partials/form.ejs")  %>
-          <% } %>
+          <% } else if (to_edit) { %>
+            <!-- edit recipe template  -->
+            <%- include("partials/editform.ejs")  %>
+          <% } else{ %>
+            <!--  new recipe template  -->
+            <%- include("partials/newform.ejs")  %>
+            <% } %>
         </div>
       </div>
      <% } %>
