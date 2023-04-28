@@ -15,21 +15,44 @@
   <main class="container">
     <h1 class="fw-bolder text-white text-center mt-5">Recipe Box</h1>
 
-    <section class="recipe-title bg-white my-5 p-2 px-5">
+    <section class="bg-white my-5 p-2 px-5">
       <h2>Recipes</h2>
-      <ul>
-      <% for( let ind = 0; ind < recipes.length; ind++ ) { %>
-      <li class="recipe">
-        <a href="/<%=ind %>"><%= recipes[ind].recipe  %></a>
-      </li>
-      <% } %>
+      <div class="recipe-title">
+      <ul class="p-0">
+        <% for( let ind = 0; ind < recipes.length; ind++ ) { %>
+        <li class="recipe">
+          <a href="/<%=ind %>"><%= recipes[ind].recipe  %></a>
+        </li>
+        <% } %>
       </ul>
+      </div>
     </section>
 
     <section class="bg-white p-2 px-5">
       <h2><%= recipes[currentRecipe].recipe  %></h2>
+      <div class="recipe-directions">
+        <article>
+          <h3>Ingredients: </h3>
+          <div>
+            <ul>
+              <% for( let ingredient of recipes[currentRecipe].ingredients ) { %>
+              <li><%= ingredient  %></li>
+              <% } %>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <h3>Directions: </h3>
+          <div>
+            <ol>
+              <% for( let ingredient of recipes[currentRecipe].directions ) { %>
+              <li><%= ingredient  %></li>
+              <% } %>
+            </ol>
+          </div>
+        </article>
+      </div>
     </section>
-
   </main>
 
   <!-- bootstrap script  -->

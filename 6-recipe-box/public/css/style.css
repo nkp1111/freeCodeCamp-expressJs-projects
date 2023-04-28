@@ -1,6 +1,15 @@
-section.recipe-title {
+section {
+  border-radius: 2rem;
+}
+
+section .recipe-title,
+section .recipe-directions {
+  height: 120px;
+  overflow-y: auto;
+}
+
+section .recipe-directions {
   height: 200px;
-  overflow: scroll;
 }
 
 .recipe {
