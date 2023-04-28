@@ -15,12 +15,14 @@
   <main class="container">
     <h1 class="fw-bolder text-white text-center mt-5">Recipe Box</h1>
 
+    <!-- list all recipes  -->
     <section class="bg-white mt-3 mb-5">
       <h2 class="bg-success ps-5 py-3">Recipes</h2>
       <div class="recipe-title p-2 px-5">
       <ul class="p-0">
         <% for( let ind = 0; ind < recipes.length; ind++ ) { %>
         <li class="recipe">
+          <!-- get recipe detail  -->
           <a href="/<%=ind %>"><%= recipes[ind].recipe  %></a>
         </li>
         <% } %>
@@ -31,11 +33,14 @@
     <section class="bg-white">
       <h2 class="bg-success ps-5 py-3"><%= recipes[currentRecipe].recipe %>
         <span>
+          <!-- delete button  -->
           <a href="/delete/start" class="delete-btn"><i class="fa-solid fa-trash"></i></a>
-          <a href="/edit"><i class="fa-solid fa-pen-to-square"></i></a>
+          <!-- edit button  -->
+          <a href="/edit/start"><i class="fa-solid fa-pen-to-square"></i></a>
         </span>
       </h2>
       <div class="recipe-directions p-2 px-5">
+        <!-- list all ingredients  -->
         <article>
           <h3>Ingredients: </h3>
           <div>
@@ -46,6 +51,7 @@
             </ul>
           </div>
         </article>
+        <!-- list all steps for recipe  -->
         <article>
           <h3>Directions: </h3>
           <div>
@@ -57,22 +63,23 @@
           </div>
         </article>
       </div>
-    
+      <!-- add new recipe  -->
       <aside class="bg-success ps-5 py-3">
         <a href="/add"><i class="fa-regular fa-square-plus"></i></a>
       </aside>
     </section>
 
-     <% if (to_delete) { %>
+    <!-- delete recipe confirmation modal  -->
+     <% if (to_delete || to_edit || to_add) { %>
       <div class="card-cover position-fixed">
-        <div class="card delete-<%= to_delete %>" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title text-dark">Are you sure you want to delete <%= recipes[currentRecipe].recipe %>?</h5>
-          </div>
-          <div class="card-body">
-            <a href="/delete/cancel" class="btn btn-secondary">Cancel</a>
-            <a href="/delete/confirm" class="btn btn-danger">Confirm</a>
-          </div>
+        <div class="card <%= !to_delete && 'form-card'%>">
+          <% if (to_delete) { %>
+            <!-- delete recipe template  -->
+            <%- include("partials/delete.ejs")  %>
+          <% } else { %>
+            <!-- edit and new recipe template  -->
+            <%- include("partials/form.ejs")  %>
+          <% } %>
         </div>
       </div>
      <% } %>

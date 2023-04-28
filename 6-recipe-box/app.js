@@ -9,9 +9,11 @@ app.use(express.static(__dirname + "/public"))
 
 let currentRecipe = 0
 let to_delete = false
+let to_edit = false
+let to_add = false
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", { recipes, currentRecipe, to_delete })
+  res.render("index.ejs", { recipes, currentRecipe, to_delete, to_add, to_edit })
 })
 
 app.get("/delete/:state", (req, res) => {
@@ -29,12 +31,24 @@ app.get("/delete/:state", (req, res) => {
       to_delete = false
       break;
   }
-
   res.redirect("/")
 })
 
-app.get("/edit", (req, res) => {
-  console.log("edit")
+app.get("/edit/:state", (req, res) => {
+  const { state } = req.params
+  switch (state) {
+    case "start":
+      to_edit = true
+      break;
+    case "confirm":
+      console.log("confirm")
+      to_edit = false
+      break;
+
+    default:
+      to_edit = false
+      break;
+  }
   res.redirect("/")
 })
 
