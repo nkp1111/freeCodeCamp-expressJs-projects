@@ -35,11 +35,11 @@
         <% if (currentRecipe) { %>
         <%= recipes[currentRecipe].recipe %>
         <% } %>
-        <span>
+        <span class="ms-3">
           <!-- delete button  -->
-          <a href="/delete/start" class="delete-btn"><i class="fa-solid fa-trash"></i></a>
+          <a href="/delete/start" class="delete-btn me-1" title="delete recipe"><i class="fa-solid fa-trash"></i></a>
           <!-- edit button  -->
-          <a href="/edit/start"><i class="fa-solid fa-pen-to-square"></i></a>
+          <a href="/edit/start" title="edit recipe"><i class="fa-solid fa-pen-to-square"></i></a>
         </span>
       </h2>
       <div class="recipe-directions p-2 px-5">
@@ -72,7 +72,7 @@
       </div>
       <!-- add new recipe  -->
       <aside class="bg-success ps-5 py-3">
-        <a href="/add/start"><i class="fa-regular fa-square-plus"></i></a>
+        <a href="/add/start" title="add recipe"><i class="fa-regular fa-square-plus"></i></a>
       </aside>
     </section>
 

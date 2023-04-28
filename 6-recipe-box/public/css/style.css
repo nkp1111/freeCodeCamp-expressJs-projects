@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: inherit;
+}
+
 section .recipe-title,
 section .recipe-directions {
   height: 120px;
@@ -23,13 +27,35 @@ section .recipe-directions {
   background-color: #0A4D68;
 }
 
+/* recipe title  */
+.recipe {
+  list-style-type: none;
+  cursor: pointer;
+
+  padding: 0.5rem;
+
+  transition: all 0.3s linear;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+.recipe:hover {
+  background-color: #fff;
+  color: #0A4D68;
+}
+
+/* recipe direction  */
 section .recipe-directions {
   height: 200px;
 }
 
-.recipe {
-  list-style-type: none;
-  cursor: pointer;
+i {
+  transition: all 0.3s linear;
+}
+
+a:hover i {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  rotate: 3deg;
 }
 
 .fa-square-plus {
@@ -44,7 +70,6 @@ section .recipe-directions {
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 10;
-  color: black;
 }
 
 .card {
@@ -54,9 +79,22 @@ section .recipe-directions {
 
   transform: translate(-50%, -50%);
   z-index: 50;
+  background-color: #088395;
+  color: #fff;
 }
 
 .form-card {
   width: 50%;
   min-width: 350px;
+}
+
+label {
+  display: block;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+form .btn {
+  margin: 0 0.5rem;
 }
