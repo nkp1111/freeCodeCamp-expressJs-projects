@@ -1,0 +1,9 @@
+section.recipe-title {
+  height: 200px;
+  overflow: scroll;
+}
+
+.recipe {
+  list-style-type: none;
+  cursor: pointer;
+}
