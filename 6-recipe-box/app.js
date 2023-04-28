@@ -1,7 +1,8 @@
 const express = require("express")
 const app = express()
 const port = process.env.PORT || 3000
-let recipes = require("./recipes")
+const store = require("store2")
+let baseRecipes = require("./recipes")
 
 app.set("view engine", "ejs")
 app.set("views", __dirname + "/views")
@@ -12,6 +13,14 @@ let currentRecipe = 0
 let to_delete = false
 let to_edit = false
 let to_add = false
+let recipes
+
+if (store.get("recipes")) {
+  recipes = JSON.parse(store.get("recipes"))
+} else {
+  recipes = baseRecipes
+  store.set("recipes", JSON.stringify(recipes))
+}
 
 app.get("/", (req, res) => {
   res.render("index.ejs", { recipes, currentRecipe, to_delete, to_add, to_edit })
