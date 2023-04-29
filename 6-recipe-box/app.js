@@ -33,13 +33,13 @@ app.get("/delete/:state", (req, res) => {
       to_delete = true
       break;
     case "confirm":
-      recipes = [...recipes.slice(0, currentRecipe)]
-      if (recipes.length > 1) {
+      recipes = [...recipes.slice(0, currentRecipe), ...recipes.slice(currentRecipe + 1,)]
+      if (recipes.length > 0) {
         currentRecipe = 0
-        recipes = [...recipes, ...recipes.slice(currentRecipe + 1,)]
       } else {
         currentRecipe = undefined
       }
+      store.set("recipes", JSON.stringify(recipes))
       to_delete = false
       break;
 
@@ -63,6 +63,7 @@ app.get("/edit/:state", (req, res) => {
       recipes[currentRecipe].recipe = name
       recipes[currentRecipe].ingredients = ingredients
       recipes[currentRecipe].directions = directions
+      store.set("recipes", JSON.stringify(recipes))
       to_edit = false
       break;
 
@@ -88,6 +89,7 @@ app.get("/add/:state", (req, res) => {
       if (!currentRecipe) {
         currentRecipe = 0
       }
+      store.set("recipes", JSON.stringify(recipes))
       to_add = false
       break;
 
